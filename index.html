@@ -368,6 +368,57 @@ body.phonemode #phone{display:block;position:fixed;inset:0;overflow-y:auto;overf
 .pfull b{font-family:'Press Start 2P';font-size:24px;color:#fff;text-shadow:0 0 20px var(--c);line-height:1.4}
 .pfull p{font-size:18px;max-width:420px}
 .pfull em{color:var(--muted);font-size:13px}
+
+.pchat .chatbox{max-height:300px;min-height:120px;overflow-y:auto;background:#0d0f1e;border:1px solid #2c3366;border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.msg{display:flex;flex-direction:column;align-items:flex-start;max-width:85%}
+.msg.me{align-self:flex-end;align-items:flex-end}
+.msg .who{font-size:11px;color:var(--muted);margin:0 4px 2px}
+.msg .bub{background:#1d2244;border:1px solid #2c3366;border-radius:14px 14px 14px 4px;padding:8px 12px;font-size:15px;word-break:break-word}
+.msg.me .bub{background:var(--c);color:#0d0f1e;border-color:var(--c);border-radius:14px 14px 4px 14px;font-weight:600}
+.quick{display:flex;gap:6px;overflow-x:auto;padding:8px 0 4px;-webkit-overflow-scrolling:touch}
+.quick button{flex:none;background:#1d2244;border:1px solid var(--c);color:var(--text);border-radius:99px;padding:6px 11px;font-size:13px;white-space:nowrap}
+.quick button:disabled{opacity:.35}
+.chatform{display:flex;gap:8px;margin-top:6px}
+.chatform input{flex:1;min-width:0;background:#0d0f1e;border:1px solid #2c3366;border-radius:99px;padding:11px 14px;color:var(--text);font:inherit;font-size:16px}
+.chatform input:focus{outline:none;border-color:var(--c)}
+.chatform button{flex:none;width:46px;height:46px;border-radius:50%;border:none;background:var(--c);color:#0d0f1e;font-size:18px;font-weight:800}
+.chatform button:disabled{opacity:.35}
+
+/* phone diagnostics, portfolio, calls */
+.pdiag{background:#2a1a12;border:1px solid #8a5e05;color:#ffd9a0;border-radius:10px;padding:8px 12px;font-size:13px;margin-bottom:10px}
+.ppf{width:100%;margin:4px 0 10px;background:#e9d9a8;color:#3a2a10;border:none;border-radius:12px;padding:13px;font-size:16px;font-weight:800;box-shadow:0 3px 0 #8a6a2a}
+.pfphone{position:fixed;inset:0;z-index:60;background:#0d0f1e;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 12px 30px}
+.pfp-top{display:flex;justify-content:space-between;align-items:center;font-family:'Press Start 2P';font-size:11px;color:var(--yield);margin-bottom:10px}
+.pfp-top button{background:var(--bad);color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:16px}
+.pfp-tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:10px;padding-bottom:2px}
+.pfp-tabs button{flex:none;background:var(--t);color:#1d1a14;border:none;border-radius:8px;padding:7px 10px;font-size:13px;font-weight:800;opacity:.45}
+.pfp-tabs button.on{opacity:1;box-shadow:0 0 0 2px #fff}
+.pfp-view{width:100%;overflow:hidden;border-radius:12px;border:7px solid #5c3417;background:#5c3417;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.pfp-stage{width:calc(100% * 100 / 38);container-type:inline-size}
+.pfp-page{width:38cqw;min-height:48cqw;flex:none;border-radius:.4cqw;transform-origin:left center}
+.pfp-page.next{animation:pnext .5s cubic-bezier(.3,.7,.3,1)}
+.pfp-page.prev{animation:pprev .5s cubic-bezier(.3,.7,.3,1);transform-origin:right center}
+@keyframes pnext{from{transform:perspective(900px) rotateY(-80deg);opacity:.2}}
+@keyframes pprev{from{transform:perspective(900px) rotateY(80deg);opacity:.2}}
+.pfp-nav{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.pfp-nav button{background:#e9d9a8;color:#1d1a14;border:none;border-radius:10px;padding:10px 16px;font-weight:800;font-size:15px}
+.pfp-nav button:disabled{opacity:.3}
+.pfp-nav span{color:#e9d9a8;font-weight:700}
+.callbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:4px 0 10px}
+.cbtn{border:none;border-radius:99px;padding:10px 14px;font-weight:800;font-size:15px;background:#1d2244;color:var(--text);border:1px solid #2c3366}
+.cbtn.call{background:#2bd46b;color:#06210f;border-color:#2bd46b}
+.cbtn.hang{background:#ff4d4d;color:#fff;border-color:#ff4d4d}
+.cbtn:disabled{opacity:.35}
+.cstat{flex:1;font-size:14px;color:var(--muted);min-width:140px}
+.cstat.live{color:#2bd46b}
+.incoming{position:fixed;left:12px;right:12px;top:12px;z-index:70;background:#161a33;border:2px solid #2bd46b;border-radius:18px;padding:16px;display:flex;flex-direction:column;align-items:center;gap:4px;box-shadow:0 10px 40px rgba(0,0,0,.6);animation:popin2 .3s ease}
+@keyframes popin2{from{transform:translateY(-30px);opacity:0}}
+.incoming .ring{font-size:40px;animation:ringing .5s infinite alternate}
+@keyframes ringing{to{transform:rotate(-18deg) scale(1.1)}}
+.incoming b{font-size:20px}
+.incoming span{color:var(--muted);font-size:14px}
+.incoming .ibtns{display:flex;gap:12px;margin-top:8px}
+.incoming .cbtn{padding:12px 22px;font-size:16px}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
@@ -626,26 +677,34 @@ const FIREBASE_CONFIG = {
   messagingSenderId: "301608230222",
   appId: "1:301608230222:web:a4356d81cf002d6653121f"
 };
+const FB={status:'init',detail:''};
+function fbText(){ return ({init:'Starting…', noconfig:'No Firebase config in index.html.', loading:'Connecting to Firebase…',
+  sdkfail:'Firebase could not be loaded – no internet, an ad-blocker, or a school/company firewall blocks it. Opening index.html directly from the computer (not via the GitHub link) can also cause this.',
+  timeout:'No answer from the database after 10 s – this wifi (firewall, VPN, ad-blocker) may block Firebase. Try mobile data or another network.',
+  dberror:'The database refused access'+(FB.detail?' ('+FB.detail+')':'')+' – check Firestore → Rules (date in the rule) and press Publish.',
+  ok:'Connected'})[FB.status]||''; }
 /* Firestore wrapped in the small interface the game uses */
 async function getDB(){
-  if(window.__ccdbMock) return window.__ccdbMock;
-  if(!FIREBASE_CONFIG.apiKey || !FIREBASE_CONFIG.projectId) return null;
+  if(window.__ccdbMock){ FB.status='ok'; return window.__ccdbMock; }
+  if(!FIREBASE_CONFIG.apiKey || !FIREBASE_CONFIG.projectId){ FB.status='noconfig'; return null; }
+  FB.status='loading';
   if(getDB.p) return getDB.p;
   getDB.p = (async()=>{
     const V='10.12.2';
     const app = await import(`https://www.gstatic.com/firebasejs/${V}/firebase-app.js`);
     const fs  = await import(`https://www.gstatic.com/firebasejs/${V}/firebase-firestore.js`);
-    const d = fs.getFirestore(app.initializeApp(FIREBASE_CONFIG));
+    const d = fs.initializeFirestore(app.initializeApp(FIREBASE_CONFIG), {experimentalForceLongPolling:true});
+    FB.status='ok';
     const W = sn=>({id:sn.id, exists:sn.exists(), data:()=>sn.data()});
     return {
       doc:path=>{ const r=fs.doc(d,path); return {
         get:async()=>W(await fs.getDoc(r)),
         set:data=>fs.setDoc(r,data),
-        onSnapshot:(next,err)=>fs.onSnapshot(r,sn=>next(W(sn)),e=>err&&err(e)) }; },
+        onSnapshot:(next,err)=>fs.onSnapshot(r,sn=>next(W(sn)),e=>{ FB.status='dberror'; FB.detail=e&&e.code||''; err&&err(e); }) }; },
       collection:path=>{ const r=fs.collection(d,path); return {
-        onSnapshot:(next,err)=>fs.onSnapshot(r,qs=>next({docs:qs.docs.map(W), docChanges:()=>qs.docChanges().map(c=>({type:c.type,doc:W(c.doc)}))}),e=>err&&err(e)) }; }
+        onSnapshot:(next,err)=>fs.onSnapshot(r,qs=>next({docs:qs.docs.map(W), docChanges:()=>qs.docChanges().map(c=>({type:c.type,doc:W(c.doc)}))}),e=>{ FB.status='dberror'; FB.detail=e&&e.code||''; err&&err(e); }) }; }
     };
-  })().catch(e=>{ console.warn('Firebase not available',e); return null; });
+  })().catch(e=>{ console.warn('Firebase not available',e); FB.status='sdkfail'; FB.detail=String(e&&e.message||e); return null; });
   return getDB.p;
 }
 const JOIN_URL = location.href.split('#')[0]+'#join';
@@ -680,9 +739,10 @@ async function hostInit(){
   try{
     H.db = await getDB();
     if(!H.db){ render(); return; }
-    H.isHost = true; H.live = true;
+    H.isHost = true;
+    setTimeout(()=>{ if(!H.live && FB.status==='ok'){ FB.status='timeout'; render(); } },10000);
     H.db.collection('phones').onSnapshot(snap=>{
-      let changed=false;
+      let changed=!H.live; H.live=true;
       snap.docChanges().forEach(ch=>{ const k=ch.doc.id, d=ch.doc.data()||{};
         if(ch.type==='removed'){ delete H.phones[k]; changed=true; return; }
         if(d.session===SESSION && hostEvents(k, d, H.phones[k])) changed=true;
@@ -700,7 +760,7 @@ function joinOverlayHTML(){
       <ol style="font-size:1.25cqw;line-height:1.6;margin:0 0 1cqw;padding-left:1.6cqw"><li>Scan the code (or open the link below)</li><li>No login needed</li><li>Tap <b>your name</b> — after the spin your role appears automatically</li></ol>
       <div style="font-size:.95cqw;color:var(--muted);word-break:break-all;margin-bottom:1cqw">${JOIN_URL}</div>
       <div class="jlist">${people.map(([k,n,ic])=>`<span class="${j.has(k)?'in':''}">${j.has(k)?'✅':'⏳'} ${ic} ${esc(n)}</span>`).join('')}</div>
-      <div style="font-size:.95cqw;color:var(--muted);margin-top:1cqw">${H.live?'🟢 Live connection active':'⚪ No Firebase config yet — phones still work as personal role cards (see README).'}</div>
+      <div style="font-size:.95cqw;color:var(--muted);margin-top:1cqw">${H.live?'🟢 Live connection active':'⚪ '+fbText()+' Phones still work as personal role cards.'}</div>
       <div style="text-align:right;margin-top:1cqw"><button class="start" style="font-size:1.1cqw" data-a="closeOver">✔ Close</button></div></div>
   </div></div>`;
 }
@@ -733,6 +793,7 @@ function pTeam(){ const s=pMySeat(); if(s) return PLAYERS.find(p=>p.id===s).team
 function pHeader(){
   const ph=P.state?.phase;
   return `<div class="ptop"><div class="plogo">CRISIS<br>COUNCIL</div><span class="pill ${P.live?'on':''}">${P.live?'🟢 Live':'⚪ Offline'}</span></div>
+    ${P.live?'':`<div class="pdiag">⚪ ${fbText()}</div>`}
     ${ph?`<div class="pphase">Now on the big screen: <b>${PH_LABEL(ph)}</b></div>`:''}`;
 }
 function pOptions(open){
@@ -750,7 +811,7 @@ function pPlayer(){
   const team=pTeam(), seat=pMySeat(), me=esc(P.me);
   let html=pHeader();
   if(!team){
-    return html+`<div class="pcard"><div class="pbig">🎡</div><h2>Hi ${me}!</h2><p>Waiting for the <b>Lucky Spin</b> on the big screen…</p>
+    return html+pfButton()+`<div class="pcard"><div class="pbig">🎡</div><h2>Hi ${me}!</h2><p>Waiting for the <b>Lucky Spin</b> on the big screen…</p>
       <p class="pmuted">${P.live?'Your role will appear here automatically.':'Offline mode: after the spin, tap the team you were spun into:'}</p>
       <div class="pteams">${Object.keys(TEAMS).map(t=>`<button style="--c:${tc(t)}" data-p="team" data-x="${t}">${TEAMS[t].emoji} ${TEAMS[t].name}</button>`).join('')}</div></div>
       ${pOptions(false)}<button class="plink" data-p="reset">↩ Not ${me}? Change person</button>`;
@@ -759,11 +820,12 @@ function pPlayer(){
   const mate = seat ? seats[PLAYERS.find(p=>p.team===team && p.id!==seat).id] : null;
   const abil = seat ? [PLAYERS.find(p=>p.id===seat)] : PLAYERS.filter(p=>p.team===team);
   const ph=P.state?.phase, round=P.state?.round||1, voted = P.mine.vote && P.mine.voteRound===round ? P.mine.vote : null;
-  html+=`<div class="pteam" style="--c:${col}"><div class="pemo">${TEAMS[team].emoji}</div><div><div class="pkick">TOP SECRET · ${TEAMS[team].name.toUpperCase()}</div><h2>${me}</h2><div>${T.title}${mate?` · with <b>${esc(mate)}</b>`:''}</div></div></div>
+  html+=pfButton()+`<div class="pteam" style="--c:${col}"><div class="pemo">${TEAMS[team].emoji}</div><div><div class="pkick">TOP SECRET · ${TEAMS[team].name.toUpperCase()}</div><h2>${me}</h2><div>${T.title}${mate?` · with <b>${esc(mate)}</b>`:''}</div></div></div>
    <div class="pcard"><div class="plbl">🎯 TEAM MISSION</div><p>${T.mission}</p><div class="plbl">🏆 WIN CONDITION</div><p>${T.win}</p>
    <details class="pdet"><summary>💬 Arguments you can use</summary><ul>${T.lines.map(l=>`<li>${l}</li>`).join('')}</ul></details></div>
    ${abil.map(p=>`<div class="pability" style="--c:${col}"><div class="plbl">⚡ ${seat?'YOUR ABILITY':'TEAM ABILITY — one each'}</div><b>${p.ability.name}</b><p>${p.ability.text}</p>
      <button data-p="ability" data-x="${p.id}" ${P.mine.ability?.used===p.id?'class="used"':''}>${P.mine.ability?.used===p.id?'✔ Played':'⚡ PLAY THIS ABILITY'}</button></div>`).join('')}`;
+  html+=chatHTML(team);
   if(ph==='vote'){
     html+=`<div class="pcard pvote"><div class="plbl">🗳 THE COUNCIL VOTES — tap your option</div>${Object.entries(CASES.A.options).map(([k,o])=>`<button class="${voted===k?'on':''}" style="--o:${OPT_COL[k]}" data-p="vote" data-x="${k}" ${P.live&&P.canWrite!==false?'':'disabled'}><b>${k}</b> ${o.icon} ${o.label}</button>`).join('')}
       <p class="pmuted">${voted?`✔ You voted <b>${voted}</b> (you can still change it)`:P.live&&P.canWrite!==false?'Your vote goes straight to the big screen.':'Live voting unavailable — vote by raising your hand.'}</p></div>`;
@@ -776,7 +838,7 @@ function pPlayer(){
 }
 function pVisitor(){
   const vis=esc(P.state?.visitor||'Miss Wiedehöft'), r=P.mine.rating||{}, ok=P.live&&P.canWrite!==false;
-  let html=pHeader()+`<div class="pteam" style="--c:#6fb7ff"><div class="pemo">🎓</div><div><div class="pkick">AUDIT BENCH · GUEST</div><h2>${vis}</h2><div>Lecturer · Guest Auditor</div></div></div>
+  let html=pHeader()+pfButton()+`<div class="pteam" style="--c:#6fb7ff"><div class="pemo">🎓</div><div><div class="pkick">AUDIT BENCH · GUEST</div><h2>${vis}</h2><div>Lecturer · Guest Auditor</div></div></div>
    <div class="pcard"><p>Welcome to the Crisis Council! You sit on the auditor bench as our guest. You can <b>rate each pitch</b>, react, and <b>ask a question</b> at any time — it pops up on the big screen.</p></div>
    <button class="pq" data-p="question" ${ok?'':'disabled'}>❓ I have a question</button>
    <div class="pcard"><div class="plbl">⭐ RATE THE PITCHES</div>${Object.keys(TEAMS).map(t=>`<div class="prate"><span style="color:${tc(t)}">${TEAMS[t].emoji} ${TEAMS[t].name.replace('Team ','')}</span><span>${[1,2,3,4,5].map(i=>`<button class="${i<=(r[t]||0)?'on':''}" data-p="rate" data-x="${t}:${i}" ${ok?'':'disabled'}>★</button>`).join('')}</span></div>`).join('')}</div>
@@ -785,9 +847,25 @@ function pVisitor(){
   html+=pOptions(true)+(P.live?'':'<p class="pmuted">⚪ Offline: live actions need the Firebase connection.</p>')+`<button class="plink" data-p="reset">↩ Change person</button>`;
   return html;
 }
-function pRender(){ const el=$('#phone'); if(!el) return; const y=el.scrollTop; el.innerHTML = '<div class="pin">'+(!P.me ? pPick() : P.me==='visitor' ? pVisitor() : pPlayer())+'</div>'; el.scrollTop=y; }
+function pRender(){ const el=$('#phone'); if(!el) return; const y=el.scrollTop;
+  const ci=$('#chatIn'), cv=ci?ci.value:'', cf=ci&&document.activeElement===ci, cs=ci?ci.selectionStart:0, cb=$('#chatBox'), cbs=cb?cb.scrollTop:null, cbBottom=cb?cb.scrollTop+cb.clientHeight>=cb.scrollHeight-8:true;
+  el.innerHTML = '<div class="pin">'+(!P.me ? pPick() : P.me==='visitor' ? pVisitor() : pPlayer())+'</div>'+(P.me?pfPhoneHTML():'')+(P.me&&P.me!=='visitor'?incomingHTML():''); el.scrollTop=y;
+  const ni=$('#chatIn'); if(ni){ ni.value=cv; if(cf){ ni.focus(); try{ ni.setSelectionRange(cs,cs); }catch(_){} } }
+  const nb=$('#chatBox'); if(nb) nb.scrollTop = cbBottom ? nb.scrollHeight : cbs;
+  chatSync(); callSync(); }
 function pAct(a,x){
   if(a==='me'){ pChoose(x); return; }
+  if(a==='quick'){ chatSend(x); return; }
+  if(a==='pfopen'){ P.pf=0; P.pfDir='next'; pRender(); setTimeout(()=>{P.pfDir='';},520); return; }
+  if(a==='pfclose'){ P.pf=null; pRender(); return; }
+  if(a==='pfnext'){ pfTurn(P.pf+1); return; }
+  if(a==='pfprev'){ pfTurn(P.pf-1); return; }
+  if(a==='pfgo'){ pfTurn(+x); return; }
+  if(a==='call'){ callStart(); return; }
+  if(a==='accept'){ callAccept(); return; }
+  if(a==='decline'){ callDecline(); return; }
+  if(a==='hang'){ callHang(); return; }
+  if(a==='mute'){ callMute(); return; }
   if(a==='reset'){ P.me=null; P.teamManual=null; try{ localStorage.removeItem('cc_me'); localStorage.removeItem('cc_team'); }catch(_){} pRender(); return; }
   if(a==='team'){ P.teamManual=x; try{ localStorage.setItem('cc_team',x); }catch(_){} pRender(); return; }
   if(a==='ability'){ P.showAbility=x; pWrite({ability:{used:x, ts:Date.now()}}); return; }
@@ -797,16 +875,168 @@ function pAct(a,x){
   if(a==='question'){ pWrite({question:{ts:Date.now()}}); return; }
   if(a==='rate'){ const [t,v]=x.split(':'); pWrite({rating:{...(P.mine.rating||{}), [t]:+v}}); return; }
 }
+
+/* ============ TEAM CHAT (phones) ============ */
+P.chat=[]; P.chatTeam=null; P.chatUnsub=null; P.chatSeen=0;
+const QUICK = ['👍 Agree','🤔 Not sure','Option A?','Option B?','Option C?','Who pitches?','I play our ability','⏰ Hurry!'];
+function chatSync(){
+  const team=pTeam();
+  if(!P.db || !team || team===P.chatTeam) return;
+  if(P.chatUnsub){ try{ P.chatUnsub(); }catch(_){} }
+  P.chatTeam=team; P.chat=[];
+  P.chatUnsub = P.db.collection('chat_'+team).onSnapshot(qs=>{
+    const ses=P.state?.session;
+    P.chat = qs.docs.map(d=>d.data()).filter(m=>m && m.session===ses).sort((a,b)=>a.ts-b.ts).slice(-60);
+    pRender(); setTimeout(()=>{ const b=$('#chatBox'); if(b) b.scrollTop=b.scrollHeight; },0);
+  }, ()=>{});
+}
+function chatSend(text){
+  text=String(text||'').trim().slice(0,300); const team=pTeam();
+  if(!text || !team || !P.db || !P.state?.session) return;
+  const ts=Date.now(), id=ts+'-'+KEY(P.me);
+  P.db.doc('chat_'+team+'/'+id).set({name:P.me, text, ts, session:P.state.session}).catch(()=>{});
+}
+function chatHTML(team){
+  const col=SEG_COL[team], ok=P.live && P.state?.session;
+  const msgs = P.chat.length ? P.chat.map(m=>{ const mine=m.name===P.me, t=new Date(m.ts);
+      return `<div class="msg ${mine?'me':''}"><span class="who">${mine?'You':esc(m.name)} · ${String(t.getHours()).padStart(2,'0')}:${String(t.getMinutes()).padStart(2,'0')}</span><div class="bub">${esc(m.text)}</div></div>`; }).join('')
+    : `<div class="pmuted" style="text-align:center;padding:18px 6px">${ok?'No messages yet — say hi to your teammate 👋':'Chat starts once the big screen is live.'}</div>`;
+  return `<div class="pcard pchat" style="--c:${col}"><div class="plbl">💬 TEAM CHAT & CALL · only ${TEAMS[team].name}</div>${callBarHTML()}
+    <div class="chatbox" id="chatBox">${msgs}</div>
+    <div class="quick">${QUICK.map(q=>`<button data-p="quick" data-x="${esc(q)}" ${ok?'':'disabled'}>${esc(q)}</button>`).join('')}</div>
+    <form class="chatform" data-chatform><input id="chatIn" maxlength="300" placeholder="${ok?'Message your team…':'Waiting for the big screen…'}" ${ok?'':'disabled'} autocomplete="off"><button type="submit" ${ok?'':'disabled'}>➤</button></form></div>`;
+}
+document.addEventListener('submit',e=>{ if(!e.target.matches('[data-chatform]')) return; e.preventDefault(); const i=$('#chatIn'); if(i&&i.value.trim()){ const v=i.value; i.value=''; chatSend(v); const n=$('#chatIn'); if(n){ n.value=''; n.focus(); } } });
+
+/* ============ PHONE: CASE PORTFOLIO ============ */
+P.pf=null; P.pfDir='';
+function pfHalves(){ const out=[]; for(let i=0;i<PF_PAGES.length;i++){ const [l,r]=spread(i); out.push({t:PF_PAGES[i],side:'l',c:l},{t:PF_PAGES[i],side:'r',c:r}); } return out; }
+function pfPhoneHTML(){
+  if(P.pf==null) return '';
+  const pages=pfHalves(), i=Math.max(0,Math.min(pages.length-1,P.pf)), pg=pages[i];
+  return `<div class="pfphone"><div class="pfp-top"><span>📁 ${CASES.A.code}</span><button data-p="pfclose">✖</button></div>
+   <div class="pfp-tabs">${PF_PAGES.map((n,k)=>`<button class="${Math.floor(i/2)===k?'on':''}" style="--t:${PF_COL[k]}" data-p="pfgo" data-x="${k*2}">${n}</button>`).join('')}</div>
+   <div class="pfp-view" id="pfpView"><div class="pfp-stage"><div class="page ${pg.side} pfp-page ${P.pfDir}">${pg.c}</div></div></div>
+   <div class="pfp-nav"><button data-p="pfprev" ${i===0?'disabled':''}>◀ Prev</button><span>${i+1} / ${pages.length}</span><button data-p="pfnext" ${i===pages.length-1?'disabled':''}>Next ▶</button></div>
+   <div class="pmuted" style="text-align:center;font-size:12px;margin-top:6px">Swipe left / right to turn the page</div></div>`;
+}
+function pfTurn(n){ const max=PF_PAGES.length*2-1; n=Math.max(0,Math.min(max,n)); if(n===P.pf) return; P.pfDir = n>P.pf?'next':'prev'; P.pf=n; pRender(); setTimeout(()=>{ P.pfDir=''; },520); }
+let pfTouchX=null;
+document.addEventListener('touchstart',e=>{ if(PHONE() && P.pf!=null && e.target.closest('.pfp-view')) pfTouchX=e.touches[0].clientX; },{passive:true});
+document.addEventListener('touchend',e=>{ if(pfTouchX==null) return; const dx=e.changedTouches[0].clientX-pfTouchX; pfTouchX=null; if(Math.abs(dx)>45) pfTurn(P.pf+(dx<0?1:-1)); },{passive:true});
+const pfButton = ()=>`<button class="ppf" data-p="pfopen">📂 Open the case portfolio</button>`;
+
+/* ============ PHONE: TEAM VOICE CALL (WebRTC, signaling via Firestore) ============ */
+const ICE = {iceServers:[{urls:['stun:stun.l.google.com:19302','stun:stun1.l.google.com:19302','stun:stun2.l.google.com:19302']}]};
+const C2 = {state:'idle', pc:null, stream:null, callId:null, peer:null, t0:0, muted:false, docs:{}, unsub:null, team:null, ring:null, err:'', pendingOffer:null};
+function pMate(){ const seat=pMySeat(), seats=P.state?.seats||{}; if(!seat) return 'your teammate'; const t=PLAYERS.find(p=>p.id===seat).team; return seats[PLAYERS.find(p=>p.team===t&&p.id!==seat).id]||'your teammate'; }
+function callAudio(){ let a=document.getElementById('callAudio'); if(!a){ a=document.createElement('audio'); a.id='callAudio'; a.autoplay=true; a.setAttribute('playsinline',''); document.body.appendChild(a); } return a; }
+function callSync(){
+  const team=pTeam(); if(!P.db || !team || team===C2.team) return;
+  if(C2.unsub){ try{ C2.unsub(); }catch(_){} }
+  C2.team=team; C2.docs={};
+  C2.unsub=P.db.collection('call_'+team).onSnapshot(qs=>{ const m={}; qs.docs.forEach(d=>m[d.id]=d.data()); C2.docs=m; callOnDocs(); }, ()=>{});
+}
+function callOnDocs(){
+  const ses=P.state?.session, o=C2.docs.offer, a=C2.docs.answer, e=C2.docs.end, ok=x=>x && x.session===ses;
+  if(ok(e) && e.callId===C2.callId && C2.state!=='idle' && C2.state!=='incoming' && e.by!==P.me){ callCleanup('Call ended by '+e.by); return; }
+  if(C2.state==='incoming' && ok(e) && C2.pendingOffer && e.callId===C2.pendingOffer.callId){ ringStop(); C2.state='idle'; C2.pendingOffer=null; C2.err='Missed call'; pRender(); return; }
+  if(C2.state==='calling' && C2.pc && ok(a) && a.callId===C2.callId && a.from!==P.me){
+    C2.state='connecting'; pRender();
+    C2.pc.setRemoteDescription({type:'answer', sdp:a.sdp}).catch(()=>callCleanup('Connection failed')); return; }
+  const fresh = ok(o) && o.from!==P.me && Date.now()-o.ts<60000 && !(ok(e) && e.callId===o.callId) && !(ok(a) && a.callId===o.callId) && o.callId!==C2.callId;
+  if(fresh){
+    if(C2.state==='calling'){ callCleanup(null,true); C2.pendingOffer=o; callAccept(); return; }   // both pressed call → just connect
+    if(C2.state==='idle' && (!C2.pendingOffer || C2.pendingOffer.callId!==o.callId)){ C2.state='incoming'; C2.pendingOffer=o; C2.peer=o.from; C2.err=''; ringStart(false); pRender(); }
+  }
+}
+function getMic(){ return navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true, noiseSuppression:true, autoGainControl:true}, video:false}); }
+function newPC(){
+  const pc=new RTCPeerConnection(ICE);
+  pc.ontrack=ev=>{ const au=callAudio(); au.srcObject=ev.streams[0]; au.play().catch(()=>{}); };
+  pc.onconnectionstatechange=()=>{
+    if(C2.pc!==pc) return;
+    const s=pc.connectionState;
+    if(s==='connected'){ C2.state='incall'; C2.t0=Date.now(); ringStop(); startCallTimer(); pRender(); }
+    if(s==='failed') callHang('Connection failed — try being on the same wifi, or both on mobile data');
+    if(s==='disconnected') setTimeout(()=>{ if(C2.pc===pc && pc.connectionState!=='connected') callHang('Call dropped'); },5000);
+  };
+  return pc;
+}
+function iceDone(pc){ return new Promise(res=>{ if(pc.iceGatheringState==='complete') return res(); const t=setTimeout(res,2500); pc.addEventListener('icegatheringstatechange',()=>{ if(pc.iceGatheringState==='complete'){ clearTimeout(t); res(); } }); }); }
+async function callStart(){
+  if(C2.state!=='idle' || !P.db || !P.state?.session) return;
+  const team=pTeam(); C2.err='';
+  try{ C2.stream=await getMic(); }catch(_){ C2.err='Microphone blocked — allow microphone access for this page in your browser settings'; pRender(); return; }
+  C2.callId=Date.now()+'-'+KEY(P.me); C2.peer=pMate(); C2.state='calling'; pRender(); ringStart(true);
+  const pc=C2.pc=newPC(); C2.stream.getTracks().forEach(t=>pc.addTrack(t,C2.stream));
+  await pc.setLocalDescription(await pc.createOffer()); await iceDone(pc);
+  if(C2.pc!==pc) return;
+  P.db.doc('call_'+team+'/offer').set({callId:C2.callId, from:P.me, sdp:pc.localDescription.sdp, session:P.state.session, ts:Date.now()}).catch(()=>{});
+  clearTimeout(C2.timeout); C2.timeout=setTimeout(()=>{ if(C2.state==='calling') callHang('No answer'); },45000);
+}
+async function callAccept(){
+  const o=C2.pendingOffer; if(!o) return; ringStop(); const team=pTeam(); C2.err='';
+  try{ C2.stream=await getMic(); }catch(_){ C2.err='Microphone blocked — allow microphone access for this page in your browser settings'; C2.state='idle'; pRender(); return; }
+  C2.callId=o.callId; C2.peer=o.from; C2.state='connecting'; pRender();
+  const pc=C2.pc=newPC(); C2.stream.getTracks().forEach(t=>pc.addTrack(t,C2.stream));
+  try{
+    await pc.setRemoteDescription({type:'offer', sdp:o.sdp});
+    await pc.setLocalDescription(await pc.createAnswer()); await iceDone(pc);
+  }catch(_){ callHang('Connection failed'); return; }
+  if(C2.pc!==pc) return;
+  P.db.doc('call_'+team+'/answer').set({callId:o.callId, from:P.me, sdp:pc.localDescription.sdp, session:P.state.session, ts:Date.now()}).catch(()=>{});
+}
+function callEndDoc(id){ if(id && P.db && P.state?.session) P.db.doc('call_'+pTeam()+'/end').set({callId:id, by:P.me, session:P.state.session, ts:Date.now()}).catch(()=>{}); }
+function callDecline(){ const o=C2.pendingOffer; ringStop(); C2.state='idle'; if(o) callEndDoc(o.callId); pRender(); }
+function callHang(msg){ callEndDoc(C2.callId); callCleanup(msg); }
+function callCleanup(msg, silent){
+  clearTimeout(C2.timeout); clearInterval(C2.tick); ringStop();
+  try{ C2.pc && C2.pc.close(); }catch(_){}
+  try{ C2.stream && C2.stream.getTracks().forEach(t=>t.stop()); }catch(_){}
+  const au=document.getElementById('callAudio'); if(au) au.srcObject=null;
+  Object.assign(C2,{state:'idle', pc:null, stream:null, callId:null, muted:false});
+  C2.err = msg||''; if(!silent) pRender();
+}
+function callMute(){ C2.muted=!C2.muted; if(C2.stream) C2.stream.getAudioTracks().forEach(t=>t.enabled=!C2.muted); pRender(); }
+const callElapsed = ()=>{ const s=Math.max(0,Math.floor((Date.now()-C2.t0)/1000)); return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0'); };
+function startCallTimer(){ clearInterval(C2.tick); C2.tick=setInterval(()=>{ const el=document.getElementById('callTime'); if(el) el.textContent=callElapsed(); },1000); }
+let ringCtx=null;
+function ringStart(outgoing){
+  ringStop(); try{ ringCtx = ringCtx || new (window.AudioContext||window.webkitAudioContext)(); }catch(_){ return; }
+  const beep=()=>{ try{ const o=ringCtx.createOscillator(), g=ringCtx.createGain(); o.frequency.value=outgoing?440:660; g.gain.value=.05; o.connect(g); g.connect(ringCtx.destination); o.start(); o.stop(ringCtx.currentTime+.35); }catch(_){}
+    if(!outgoing && navigator.vibrate){ try{ navigator.vibrate([200,100,200]); }catch(_){} } };
+  beep(); C2.ring=setInterval(beep, outgoing?2500:1300);
+}
+function ringStop(){ clearInterval(C2.ring); C2.ring=null; }
+function callBarHTML(){
+  const can = P.live && P.state?.session && window.RTCPeerConnection && navigator.mediaDevices && navigator.mediaDevices.getUserMedia;
+  const mate=esc(pMate()); let inner='';
+  if(C2.state==='idle')       inner=`<button class="cbtn call" data-p="call" ${can?'':'disabled'}>📞 Call ${mate}</button>`;
+  if(C2.state==='calling')    inner=`<span class="cstat">📞 Calling ${esc(C2.peer||mate)}…</span><button class="cbtn hang" data-p="hang">✖ Cancel</button>`;
+  if(C2.state==='connecting') inner=`<span class="cstat">🔄 Connecting…</span><button class="cbtn hang" data-p="hang">✖</button>`;
+  if(C2.state==='incoming')   inner=`<span class="cstat">📞 ${esc(C2.peer)} is calling…</span>`;
+  if(C2.state==='incall')     inner=`<span class="cstat live">🔊 Talking with ${esc(C2.peer)} · <b id="callTime">${callElapsed()}</b></span><button class="cbtn" data-p="mute">${C2.muted?'🔇 Unmute':'🎙 Mute'}</button><button class="cbtn hang" data-p="hang">📴 End</button>`;
+  return `<div class="callbar">${inner}</div>${C2.err?`<div class="pmuted" style="margin:6px 2px 0">ℹ️ ${esc(C2.err)}</div>`:''}${can||C2.state!=='idle'?'':'<div class="pmuted" style="margin-top:6px">Calls need the live connection.</div>'}`;
+}
+function incomingHTML(){
+  if(C2.state!=='incoming') return '';
+  return `<div class="incoming"><div class="ring">📞</div><b>${esc(C2.peer)}</b><span>is calling you · team call</span>
+    <div class="ibtns"><button class="cbtn hang" data-p="decline">Decline</button><button class="cbtn call" data-p="accept">Accept</button></div></div>`;
+}
+
 async function phoneInit(){
   document.documentElement.classList.add('phonemode'); document.body.classList.add('phonemode'); pRender();
   try{
     P.db = await getDB();
     if(!P.db){ pRender(); return; }
+    setTimeout(()=>{ if(!P.live && FB.status==='ok'){ FB.status='timeout'; pRender(); } },10000);
     P.db.doc('game/state').onSnapshot(sn=>{
       P.live=true; P.state=sn.exists?sn.data():null;
-      if(P.me && P.state && P.mine.session!==P.state.session){ P.mine={}; pWrite({joinedAt:Date.now()}); }
+      if(P.me && P.state && P.mine.session!==P.state.session){ P.mine={}; P.chatTeam=null; C2.team=null; if(C2.state!=='idle') callCleanup(null,true); pWrite({joinedAt:Date.now()}); }
       pRender();
     }, ()=>{ P.live=false; pRender(); });
+    pRender();
   }catch(_){ pRender(); }
 }
 document.addEventListener('click',e=>{ if(!PHONE()) return; const b=e.target.closest('[data-p]'); if(b){ e.preventDefault(); pAct(b.dataset.p, b.dataset.x); } });
@@ -1055,7 +1285,7 @@ function consoleHTML(){
   const util=`<div class="util">
     <button data-a="timer" data-x="go">${T.run?'❚❚ Pause':'▶ Timer'}</button><button data-a="timer" data-x="reset">↺</button><button data-a="timer" data-x="plus">+30s</button>
     <button data-a="react" data-x="👏" title="Applause">👏</button><button data-a="react" data-x="😱">😱</button><button data-a="react" data-x="🤔">🤔</button>
-    <button data-a="clearAll" title="Clear speech, reactions & panels">🧹</button><button data-a="join">📱 Join</button><button data-a="menu">☰ Menu</button><button data-a="fs">⛶</button><button data-a="mute">${S.mute?'🔇':'🔊'}</button></div>`;
+    <button data-a="clearAll" title="Clear speech, reactions & panels">🧹</button><button data-a="join" title="${H.live?'Live':fbText()}">${H.live?'🟢':'⚪'} 📱 Join</button><button data-a="menu">☰ Menu</button><button data-a="fs">⛶</button><button data-a="mute">${S.mute?'🔇':'🔊'}</button></div>`;
   let acts='';
   const speak=(k,lbl,col)=>A(lbl,'say',k,{c:col});
   if(ph==='spin'){
